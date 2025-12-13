@@ -49,7 +49,7 @@ const moreProjects = [
 
 export const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-12 px-4 text-white">
+    <section id="projects" className="py-20 px-4 text-white">
       <div className="container mx-auto max-w-6xl">
         {/* Heading */}
         <motion.h2

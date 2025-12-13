@@ -13,7 +13,7 @@ import "react-vertical-timeline-component/style.min.css";
 
 export const Experience = () => {
   return (
-    <section id="experience" className="py-12 px-4 relative">
+    <section id="experience" className="py-20 px-4 relative">
       <div className="container mx-auto max-w-5xl">
         {/* Heading */}
         <motion.h2

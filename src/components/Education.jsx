@@ -23,7 +23,7 @@ const EducationData = [
 
 const Education = () => {
   return (
-    <section id="education" className="py-12 px-4 relative bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white">
+    <section id="education" className="py-20 px-4 relative bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white">
       <div className="container mx-auto max-w-4xl">
         <motion.h2
           initial={{ opacity: 0, y: -30 }}

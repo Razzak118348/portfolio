@@ -35,7 +35,7 @@ export const SkillsSection = () => {
   );
 
   return (
-    <section id="skills" className="py-12 px-4 relative  text-white">
+    <section id="skills" className="py-20 px-4 relative  text-white">
       <div className="container mx-auto max-w-6xl">
         <motion.h2
           initial={{ opacity: 0, y: -50 }}

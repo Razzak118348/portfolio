@@ -7,7 +7,7 @@ export const Footer = () => {
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="py-12 px-4 bg-gray-900 text-white border-t border-gray-700 mt-12 flex flex-col md:flex-row items-center justify-between gap-4"
+      className="py-20 px-4 bg-gray-900 text-white border-t border-gray-700 mt-12 flex flex-col md:flex-row items-center justify-between gap-4"
     >
       {/* Copyright */}
       <p className="text-sm text-gray-400">

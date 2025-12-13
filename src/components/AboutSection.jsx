@@ -24,7 +24,7 @@ export const AboutSection = () => {
   return (
     <section
       id="about"
-      className="py-12 px-4 relative bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white"
+      className="py-20 px-4 relative bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white"
     >
       <div className="container mx-auto max-w-5xl">
         {/* Heading */}
