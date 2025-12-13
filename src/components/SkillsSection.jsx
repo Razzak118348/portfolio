@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import 'react-circular-progressbar/dist/styles.css';
 import { cn } from "@/lib/utils";
 
 const skills = [
@@ -16,7 +19,6 @@ const skills = [
   { name: "Firebase", level: 70, category: "backend" },
   { name: "MySQL", level: 70, category: "backend" },
 
-
   // Tools
   { name: "Git/GitHub", level: 90, category: "tools" },
   { name: "Figma", level: 85, category: "tools" },
@@ -31,52 +33,63 @@ export const SkillsSection = () => {
   const filteredSkills = skills.filter(
     (skill) => activeCategory === "all" || skill.category === activeCategory
   );
-  return (
-    <section id="skills" className="py-24 px-4 relative bg-secondary/30">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          My <span className="text-primary"> Skills</span>
-        </h2>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+  return (
+    <section id="skills" className="py-12 px-4 relative  text-white">
+      <div className="container mx-auto max-w-6xl">
+        <motion.h2
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-3xl md:text-4xl font-bold mb-12 text-center"
+        >
+          My <span className="text-primary">Skills</span>
+        </motion.h2>
+
+        {/* Category Tabs */}
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
           {categories.map((category, key) => (
-            <button
+            <motion.button
               key={key}
               onClick={() => setActiveCategory(category)}
+              whileTap={{ scale: 0.95 }}
               className={cn(
-                "px-5 py-2 rounded-full transition-colors duration-300 capitalize",
+                "px-5 py-2 rounded-full font-medium transition-colors duration-300 capitalize border-2 border-transparent hover:border-primary",
                 activeCategory === category
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary/70 text-forefround hover:bd-secondary"
+                  ? "bg-gradient-to-r from-primary to-secondary text-white shadow-lg"
+                  : "bg-gray-800 text-gray-300"
               )}
             >
               {category}
-            </button>
+            </motion.button>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredSkills.map((skill, key) => (
-            <div
-              key={key}
-              className="bg-card p-6 rounded-lg shadow-xs card-hover"
+        {/* Skills Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+          {filteredSkills.map((skill, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="flex flex-col items-center"
             >
-              <div className="text-left mb-4">
-                <h3 className="font-semibold text-lg"> {skill.name}</h3>
-              </div>
-              <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
-                <div
-                  className="bg-primary h-2 rounded-full origin-left animate-[grow_1.5s_ease-out]"
-                  style={{ width: skill.level + "%" }}
+              <div className="w-24 h-24 mb-4">
+                <CircularProgressbar
+                  value={skill.level}
+                  text={`${skill.level}%`}
+                  strokeWidth={6}
+                  styles={buildStyles({
+                    pathColor: `linear-gradient(45deg, #4ade80, #3b82f6)`,
+                    textColor: "#fff",
+                    trailColor: "#1f2937",
+                    textSize: "16px",
+                  })}
                 />
               </div>
-
-              <div className="text-right mt-1">
-                <span className="text-sm text-muted-foreground">
-                  {skill.level}%
-                </span>
-              </div>
-            </div>
+              <h4 className="text-center font-medium">{skill.name}</h4>
+            </motion.div>
           ))}
         </div>
       </div>

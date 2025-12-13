@@ -1,33 +1,34 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { motion } from "framer-motion";
+import Tilt from "react-parallax-tilt";
 
 const projects = [
   {
     id: 1,
     title: "KajBondhu",
-    description: "A service booking web app where users hire local workers for tasks. Built with React.js, Tailwind CSS, Node.js,Express.js, and MongoDB. Features: service filtering, user authentication, REST API, admin panel, Firebase hostingand authentication.",
+    description:
+      "A service booking web app where users hire local workers for tasks. Built with React.js, Tailwind CSS, Node.js, Express.js, and MongoDB. Features: service filtering, user authentication, REST API, admin panel, Firebase hosting and authentication.",
     image: "/projects/project1.png",
     tags: ["JavaScript", "React", "TailwindCSS", "Node.js", "Express.js", "MongoDB", "Firebase"],
     demoUrl: "https://kajbondu.web.app/",
     githubUrl: "https://github.com/Razzak118348/kajbondu",
     backend: "https://github.com/Razzak118348/kajbondu-server/"
   },
-
   {
     id: 2,
     title: "Crafted Canvas",
     description:
-      "Full-stack artist platform, User can publish their card or delete their craft.It is a vartual platform to shere craft. MERN Stack and Tailwind CSS also use Firebase,REST API.",
-    image: "/projects/project2.png",
-    tags: ["JavaScript", "React", "TailwindCSS", "Node.js", "Express.js", "MongoDB", "Firebase"],
+      "Responsive website for Alpha Community, a rock music brand. Striking homepage, event highlights, and engaging UI.This is client satisfaction project and it was built using React.js, Tailwind CSS, and Firebase,Rest API integration and Firebase hosting.",
+    image: "/projects/project4.png",
+    tags: ["JavaScript", "React", "TailwindCSS", "Firebase"],
     demoUrl: "https://craftedcanvas10.web.app/",
-    githubUrl: "https://github.com/Razzak118348/CraftedCanvas-client-site",
-    backend: "https://github.com/Razzak118348/CraftedCanvas-server-site"
+    githubUrl: "https://github.com/Razzak118348/Alpha-community",
   },
   {
     id: 3,
     title: "DIoT Lab",
     description:
-      "DIoT Lab is a cutting-edge platform designed to support academic research and innovation in the Internet of Things (IoT) domain. Created for university students and researchers, it serves as a hub for over 200 students to explore, collaborate, and contribute to groundbreaking projects.",
+      "Platform supporting academic research in IoT. Hub for 200+ students to explore and collaborate on projects.Features are=>1)Research Collaboration: A centralized space for students and professors to share ideas and findings.2)Project Management: Simplifies organizing and tracking research progress with an intuitive interface.",
     image: "/projects/project3.png",
     tags: ["React", "JavaScript", "TailwindCss", "Firebase", "JSON"],
     demoUrl: "https://lab-research-f5c1b.web.app/",
@@ -36,118 +37,89 @@ const projects = [
 ];
 
 const moreProjects = [
-
-  {
-    title: "Alpha Musical Club",
-    url: "https://loquacious-caramel-8a51e9.netlify.app/",
-
-  },
-  {
-    title: "Charming Cottage",
-    url: "https://charming-cottage.web.app/",
-  },
-  {
-    title: "Car Service",
-    url: "https://car-service21.web.app/",
-
-  },
-  {
-    title: "Book Review",
-    url: "https://bookreview-razzak.netlify.app/",
-  },
-
-  {
-    title: "Daily News",
-    url: "https://daily-news-with-react.web.app/",
-  },
-{
-title:"YouTube Control Extension",
-url: "https://github.com/Razzak118348/Youtube-filter-extension",
-},
-  {
-    title: "HSTU Bus",
-    url: "https://hstubussshedule.web.app/",
-
-  },
-  {
-    title: "Typing Game",
-    url: "https://razzak118348.github.io/Alpha-clash-game/index.html",
-  },
+  { title: "Alpha Musical Club", url: "https://loquacious-caramel-8a51e9.netlify.app/" },
+  { title: "Charming Cottage", url: "https://charming-cottage.web.app/" },
+  { title: "Car Service", url: "https://car-service21.web.app/" },
+  { title: "Book Review", url: "https://bookreview-razzak.netlify.app/" },
+  { title: "Daily News", url: "https://daily-news-with-react.web.app/" },
+  { title: "YouTube Control Extension", url: "https://github.com/Razzak118348/Youtube-filter-extension" },
+  { title: "HSTU Bus", url: "https://hstubussshedule.web.app/" },
+  { title: "Typing Game", url: "https://razzak118348.github.io/Alpha-clash-game/index.html" },
 ];
-
 
 export const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-24 px-4 relative">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          {" "}
-          Featured <span className="text-primary"> Projects </span>
-        </h2>
-
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Here are some of my recent projects. Each project was carefully
-          crafted with attention to detail, performance, and user experience.
+    <section id="projects" className="py-12 px-4 text-white">
+      <div className="container mx-auto max-w-6xl">
+        {/* Heading */}
+        <motion.h2
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-3xl md:text-4xl font-bold mb-4 text-center"
+        >
+          Featured <span className="text-primary">Projects</span>
+        </motion.h2>
+        <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
+          Here are some of my recent projects, carefully crafted with attention to detail, performance, and user experience.
         </p>
 
+        {/* Featured Projects */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, key) => (
-            <div
-              key={key}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
+          {projects.map((project, i) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
             >
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-
-              <div className="p-6">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h3 className="text-xl font-semibold mb-1"> {project.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4">
-                  {project.description}
-                </p>
-                <div className="flex justify-between items-center">
-                  <div className="flex space-x-3">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <Github size={20} />
-                    </a>
-
-                    <a href={project.backend ? project.backend : "#"}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-server"><rect x="2" y="3" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="13" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="7" x2="6.01" y2="7"></line><line x1="6" y1="17" x2="6.01" y2="17"></line></svg>
-                    </a>
-
+              <Tilt
+                glareEnable={true}
+                glareMaxOpacity={0.25}
+                glareColor="#ffffff"
+                glarePosition="all"
+                className="rounded-xl bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 p-1 hover:shadow-lg transition-shadow duration-300"
+              >
+                <div className="bg-gray-900 rounded-lg overflow-hidden h-full flex flex-col">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-1 text-xs font-medium border rounded-full bg-primary/20 text-primary"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                    <p className="text-gray-400 text-sm flex-1">{project.description}</p>
+                    <div className="flex space-x-3 mt-4">
+                      <a href={project.demoUrl} target="_blank" className="hover:text-primary transition-colors">
+                        <ExternalLink size={20} />
+                      </a>
+                      <a href={project.githubUrl} target="_blank" className="hover:text-primary transition-colors">
+                        <Github size={20} />
+                      </a>
+                      {project.backend && (
+                        <a href={project.backend} target="_blank" className="hover:text-primary transition-colors">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-server"><rect x="2" y="3" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="13" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="7" x2="6.01" y2="7"></line><line x1="6" y1="17" x2="6.01" y2="17"></line></svg>
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </Tilt>
+            </motion.div>
           ))}
         </div>
 
-        {/* More projects */}
+        {/* More Projects */}
         <div className="mt-16">
           <h3 className="text-xl font-semibold mb-6 text-center">More Projects</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -157,7 +129,7 @@ export const ProjectsSection = () => {
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-card rounded-lg shadow-xs p-5 flex flex-col items-center hover:shadow-md transition"
+                className="group bg-gray-800 rounded-lg shadow-lg p-5 flex flex-col items-center hover:shadow-2xl transition-all"
               >
                 <span className="font-medium mb-2">{project.title}</span>
                 <ExternalLink className="text-primary group-hover:scale-110 transition-transform" size={18} />
@@ -166,6 +138,7 @@ export const ProjectsSection = () => {
           </div>
         </div>
 
+        {/* Github Button */}
         <div className="text-center mt-12">
           <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"

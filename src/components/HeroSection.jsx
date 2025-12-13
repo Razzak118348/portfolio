@@ -1,51 +1,78 @@
 import { ArrowDown } from "lucide-react";
+import { motion } from "framer-motion";
 
 export const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4"
+      className="relative min-h-screen flex flex-col items-center justify-center px-4 text-white"
     >
       <div className="container max-w-4xl mx-auto text-center z-10">
         {/* Profile Picture */}
-        <div className="flex justify-center mb-8">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          className="flex justify-center mb-8"
+        >
           <img
             src="/projects/razzakpic.png"
             alt="Abdur Razzak"
             className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary shadow-lg"
           />
-        </div>
+        </motion.div>
+
+        {/* Hero Text */}
         <div className="space-y-6">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            <span className="opacity-0 animate-fade-in"> Hi, I am</span>
-            <span className="text-primary opacity-0 animate-fade-in-delay-1">
-              {" "}
-              Abdur
-            </span>
-            <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2">
-              {" "}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-4xl md:text-6xl font-bold tracking-tight"
+          >
+            <span className="text-gray-400">Hi, I am</span>{" "}
+            <span className="text-primary">Abdur</span>{" "}
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
               Razzak
             </span>
-          </h1>
+          </motion.h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            I create stellar web experiences with modern technologies.
-            Specializing in front-end development, I build interfaces that are
-            both beautiful and functional. I am a passionate web developer with MERN stack development experience.
-          </p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto"
+          >
+            I create stellar web experiences with modern technologies. Specializing
+            in front-end and MERN stack development, I build interfaces that are
+            both beautiful and functional.
+          </motion.p>
 
-          <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-            <a href="#projects" className="cosmic-button">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <a
+              href="#projects"
+              className="cosmic-button px-8 py-3 text-lg font-semibold"
+            >
               View My Work
             </a>
-          </div>
+          </motion.div>
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-        <span className="text-sm text-muted-foreground mb-2"> Scroll </span>
+      {/* Scroll Down Indicator */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+      >
+        <span className="text-sm text-gray-400 mb-2">Scroll</span>
         <ArrowDown className="h-5 w-5 text-primary" />
-      </div>
+      </motion.div>
     </section>
   );
 };
