@@ -3,10 +3,8 @@
 <div align="center">
   <br />
 
-<<<<<<< HEAD
   <br />
-=======
->>>>>>> 58363d4 (add picture)
+
   <div>
     <img src="https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
     <img src="https://img.shields.io/badge/-TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss" alt="Tailwind CSS" />

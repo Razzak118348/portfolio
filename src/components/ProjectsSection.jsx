@@ -16,7 +16,7 @@ const projects = [
   },
   {
     id: 2,
-    title: "Crafted Canvas",
+    title: "Alpha Community",
     description:
       "Responsive website for Alpha Community, a rock music brand. Striking homepage, event highlights, and engaging UI.This is client satisfaction project and it was built using React.js, Tailwind CSS, and Firebase,Rest API integration and Firebase hosting.",
     image: "/projects/project4.png",
