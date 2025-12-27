@@ -41,6 +41,7 @@ export const Navbar = () => {
           className="text-2xl font-bold text-primary flex items-center"
           href="#hero"
         >
+          <span><img src="/projects/razzak.png" className="w-8 h-6" alt="" /></span>
           <span className="relative z-10 text-glow text-white">
             Abdur Razzak
           </span>
