@@ -21,7 +21,7 @@ const projects = [
       "Responsive website for Alpha Community, a rock music brand. Striking homepage, event highlights, and engaging UI.This is client satisfaction project and it was built using React.js, Tailwind CSS, and Firebase,Rest API integration and Firebase hosting.",
     image: "/projects/project4.png",
     tags: ["JavaScript", "React", "TailwindCSS", "Firebase"],
-    demoUrl: "https://craftedcanvas10.web.app/",
+    demoUrl: "https://loquacious-caramel-8a51e9.netlify.app/",
     githubUrl: "https://github.com/Razzak118348/Alpha-community",
   },
   {
@@ -78,7 +78,7 @@ export const ProjectsSection = () => {
                 glareMaxOpacity={0.25}
                 glareColor="#ffffff"
                 glarePosition="all"
-                className="rounded-xl bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 p-1 hover:shadow-lg transition-shadow duration-300"
+                className="rounded-xl bg-linear-to-r from-gray-800 via-gray-700 to-gray-800 p-1 hover:shadow-lg transition-shadow duration-300"
               >
                 <div className="bg-gray-900 rounded-lg overflow-hidden h-full flex flex-col">
                   <img
