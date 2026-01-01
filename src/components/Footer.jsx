@@ -17,7 +17,7 @@ export const Footer = () => {
       {/* Social Icons */}
       <div className="flex space-x-4">
         <a
-          href="https://linkedin.com/in/abdur-razzak-0a3b91321"
+          href="https://www.linkedin.com/in/abdurrazzak21/"
           target="_blank"
           className="hover:text-primary transition-colors"
         >
