@@ -10,7 +10,6 @@
     transform: translateY(0) scale(1);
   }
 }
-
 @keyframes toast-out {
   from {
     opacity: 1;
@@ -141,6 +140,7 @@
 
   html {
     @apply scroll-smooth;
+    scroll-behavior: smooth;
   }
 
   body {
