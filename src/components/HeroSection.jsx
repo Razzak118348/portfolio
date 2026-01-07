@@ -43,8 +43,8 @@ export const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto"
           >
-            I create stellar web experiences with modern technologies. Specializing
-            in front-end and MERN stack development, I build interfaces that are
+            I develop stellar web experiences with modern technologies. Specializing
+            in front-end and MERN stack,Next.js development, I build interfaces that are
             both beautiful and functional.
           </motion.p>
 
