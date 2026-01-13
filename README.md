@@ -32,7 +32,12 @@
 
 In this tutorial, you'll learn how to build a modern portfolio website using **React**, **TailwindCSS**, **Vite**, and **Lucide Icons**. From dark mode support to responsive animations and deployable project showcases, this video walks you through every step—perfect for developers looking to level up their frontend skills or apply for jobs.
 
+## 📄 Resume
 
+You can view or download my resume here:
+
+[View Resume](https://drive.google.com/file/d/1ydRwXb0be7SYEu_uQEnQopgKQeoZTpsX/view?pli=1)
+[![Resume Badge](https://img.shields.io/badge/-Resume-blue?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1ydRwXb0be7SYEu_uQEnQopgKQeoZTpsX/view?pli=1)
 
 ---
 
