@@ -16,7 +16,7 @@ export const HeroSection = () => {
           className="flex justify-center mb-8"
         >
           <img
-            src="/projects/razzakpic.png"
+            src="/razzakpic.png"
             alt="Abdur Razzak"
             className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary shadow-lg"
           />

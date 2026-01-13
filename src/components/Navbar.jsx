@@ -150,7 +150,7 @@ export const Navbar = () => {
           className="flex items-center gap-2 text-2xl font-bold text-white hover:cursor-pointer transition-all duration-300 relative group"
         >
           <img
-            src="/projects/razzak.png"
+            src="/favicon.ico"
             alt="logo"
             className="w-8 h-6 object-contain"
           />
