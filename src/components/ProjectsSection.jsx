@@ -4,7 +4,16 @@ import Tilt from "react-parallax-tilt";
 
 const projects = [
   {
-    id: 1,
+    id:1,
+    title:"Nirapod Bangladesh Songstha",
+    description:"Nirapod Bangladesh(SAFE BD) is a non-government organization dedicated to helping vulnerable communities build safer homes and stronger futures.I used Full stack MERN and JWT,Firebase for authentication.Fully customize and client satisfaction project.This is a private project so source code do not provided here.",
+    image:"/projects/safebdproject.jpg",
+    tags:["JavaScript", "React", "TailwindCSS", "Node.js", "Express.js", "MongoDB", "Firebase","JWT","Admin pannel"],
+    demoUrl:"https://www.nirapodbangladesh.org/",
+    githubUrl:""
+  },
+  {
+    id: 2,
     title: "KajBondhu",
     description:
       "A service booking web app where users hire local workers for tasks. Built with React.js, Tailwind CSS, Node.js, Express.js, and MongoDB. Features: service filtering, user authentication, REST API, admin panel, Firebase hosting and authentication.",
@@ -15,7 +24,7 @@ const projects = [
     backend: "https://github.com/Razzak118348/kajbondu-server/"
   },
   {
-    id: 2,
+    id: 3,
     title: "Alpha Community",
     description:
       "Responsive website for Alpha Community, a rock music brand. Striking homepage, event highlights, and engaging UI.This is client satisfaction project and it was built using React.js, Tailwind CSS, and Firebase,Rest API integration and Firebase hosting.",
@@ -25,7 +34,7 @@ const projects = [
     githubUrl: "https://github.com/Razzak118348/Alpha-community",
   },
   {
-    id: 3,
+    id: 4,
     title: "DIoT Lab",
     description:
       "Platform supporting academic research in IoT. Hub for 200+ students to explore and collaborate on projects.Features are=>1)Research Collaboration: A centralized space for students and professors to share ideas and findings.2)Project Management: Simplifies organizing and tracking research progress with an intuitive interface.",
@@ -65,7 +74,7 @@ export const ProjectsSection = () => {
         </p>
 
         {/* Featured Projects */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {projects.map((project, i) => (
             <motion.div
               key={project.id}
