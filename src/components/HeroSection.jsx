@@ -5,7 +5,7 @@ export const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative flex flex-col items-center justify-center px-4 text-white"
+      className="relative flex flex-col my-20 items-center justify-center px-4 text-white"
     >
       <div className="container max-w-4xl mx-auto text-center z-10">
         {/* Profile Picture */}
