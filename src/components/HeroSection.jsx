@@ -5,7 +5,7 @@ export const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4 text-white"
+      className="relative flex flex-col items-center justify-center px-4 text-white"
     >
       <div className="container max-w-4xl mx-auto text-center z-10">
         {/* Profile Picture */}
@@ -28,7 +28,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl font-bold tracking-tight"
+            className="text-2xl md:text-4xl font-bold tracking-tight"
           >
             <span className="text-gray-400">Hi, I am</span>{" "}
             <span className="text-primary">Abdur</span>{" "}
