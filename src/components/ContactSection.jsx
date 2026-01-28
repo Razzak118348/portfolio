@@ -157,71 +157,76 @@ export const ContactSection = () => {
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-{/* {use framer-motion react-parallax-tilt for animation design and motion div} */}
-            <Tilt glareEnable={true} glareMaxOpacity={0.2} glareColor="" glarePosition="all">
-              <form
-                className="bg-gray-800 p-8 rounded-xl shadow-lg space-y-6"
-                onSubmit={handleSubmit}
-              >
-                <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
+        <motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5, ease: "easeOut" }}
+  viewport={{ once: true }}
+>
+  <form
+    className="bg-gray-900 border border-gray-700 p-8 rounded-lg shadow-md space-y-5"
+    onSubmit={handleSubmit}
+  >
+    <h3 className="text-2xl font-semibold text-white mb-4">
+      Contact Me
+    </h3>
 
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">Your Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    value={form.name}
-                    onChange={handleChange}
-                    placeholder="Pedro Machado..."
-                    className="w-full px-4 py-3 rounded-md border border-gray-600 bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
+    <div>
+      <label className="block text-sm font-medium text-gray-300 mb-1">
+        Full Name
+      </label>
+      <input
+        type="text"
+        name="name"
+        required
+        value={form.name}
+        onChange={handleChange}
+        placeholder="Enter your full name"
+        className="w-full px-4 py-2.5 rounded-md border border-gray-700 bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-primary"
+      />
+    </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">Your Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={form.email}
-                    onChange={handleChange}
-                    placeholder="john@gmail.com"
-                    className="w-full px-4 py-3 rounded-md border border-gray-600 bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
+    <div>
+      <label className="block text-sm font-medium text-gray-300 mb-1">
+        Email Address
+      </label>
+      <input
+        type="email"
+        name="email"
+        required
+        value={form.email}
+        onChange={handleChange}
+        placeholder="Enter your email address"
+        className="w-full px-4 py-2.5 rounded-md border border-gray-700 bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-primary"
+      />
+    </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">Your Message</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    value={form.message}
-                    onChange={handleChange}
-                    placeholder="Hello, I'd like to talk about..."
-                    className="w-full px-4 py-3 rounded-md border border-gray-600 bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-                  />
-                </div>
+    <div>
+      <label className="block text-sm font-medium text-gray-300 mb-1">
+        Message
+      </label>
+      <textarea
+        name="message"
+        rows={4}
+        required
+        value={form.message}
+        onChange={handleChange}
+        placeholder="Write your message here..."
+        className="w-full px-4 py-2.5 rounded-md border border-gray-700 bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+      />
+    </div>
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className={cn("cosmic-button w-full flex items-center justify-center gap-2")}
-                >
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                  <Send size={16} />
-                </button>
-              </form>
-            </Tilt>
-          </motion.div>
+    <button
+      type="submit"
+      disabled={isSubmitting}
+      className="w-full py-2.5 rounded-md bg-primary hover:bg-primary/90 transition text-white font-medium flex items-center justify-center gap-2"
+    >
+      {isSubmitting ? "Sending..." : "Send Message"}
+      <Send size={16} />
+    </button>
+  </form>
+</motion.div>
+
         </div>
       </div>
     </section>
