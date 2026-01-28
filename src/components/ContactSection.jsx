@@ -10,12 +10,13 @@ import {
 import { motion } from "framer-motion";
 // import Tilt from "react-parallax-tilt";
 // import { cn } from "@/lib/utils";
-import { useToast } from "@/hooks/use-toast";
+// import { useToast } from "@/hooks/use-toast";
+import Swal from "sweetalert2";
 import { useState } from "react";
 import emailjs from "emailjs-com";
 
 export const ContactSection = () => {
-  const { toast } = useToast();
+  // const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
@@ -23,41 +24,47 @@ export const ContactSection = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+const handleSubmit = (e) => {
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    emailjs
-      .send(
-        "service_grusd6c",
-        "template_kp2ndck",
-        {
-          from_name: form.name,
-          from_email: form.email,
-          message: form.message,
-        },
-        "RrxIEYAonv1FA-Iyb"
-      )
-      .then(
-        () => {
-          toast({
-            title: "Message sent!",
-            description: "Thank you for your message. I'll get back to you soon.",
-          });
-          setIsSubmitting(false);
-          setForm({ name: "", email: "", message: "" });
-        },
-        (error) => {
-          console.error(error);
-          toast({
-            title: "Error",
-            description: "Failed to send message. Please try again later.",
-            variant: "destructive",
-          });
-          setIsSubmitting(false);
-        }
-      );
-  };
+  emailjs
+    .send(
+      "service_grusd6c",
+      "template_kp2ndck",
+      {
+        from_name: form.name,
+        from_email: form.email,
+        message: form.message,
+      },
+      "RrxIEYAonv1FA-Iyb"
+    )
+    .then(
+      () => {
+        Swal.fire({
+          icon: "success",
+          title: "Message Sent",
+          text: "Thank you for your message. I will get back to you soon.",
+          confirmButtonColor: "#4f46e5",
+        });
+
+        setIsSubmitting(false);
+        setForm({ name: "", email: "", message: "" });
+      },
+      (error) => {
+        console.error(error);
+
+        Swal.fire({
+          icon: "error",
+          title: "Failed",
+          text: "Message could not be sent. Please try again later.",
+          confirmButtonColor: "#ef4444",
+        });
+
+        setIsSubmitting(false);
+      }
+    );
+};
 
   return (
     <section id="contact" className="py-20 px-4 relative bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white">
