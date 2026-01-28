@@ -8,8 +8,8 @@ import {
   Send,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import Tilt from "react-parallax-tilt";
-import { cn } from "@/lib/utils";
+// import Tilt from "react-parallax-tilt";
+// import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import emailjs from "emailjs-com";
