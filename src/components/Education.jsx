@@ -29,7 +29,7 @@ const Education = () => {
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-3xl md:text-4xl font-bold mb-12 text-center"
+          className="text-xl md:text-2xl font-bold mb-12 text-center"
         >
           My <span className="text-primary">Education</span>
         </motion.h2>

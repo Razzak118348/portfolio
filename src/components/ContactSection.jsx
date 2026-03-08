@@ -74,7 +74,7 @@ const handleSubmit = (e) => {
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-3xl md:text-4xl font-bold mb-4 text-center"
+          className="text-xl md:text-2xl font-bold mb-4 text-center"
         >
           Get In <span className="text-primary">Touch</span>
         </motion.h2>
@@ -96,7 +96,7 @@ const handleSubmit = (e) => {
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
-            <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
+            <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
 
             <div className="space-y-6">
               {[
