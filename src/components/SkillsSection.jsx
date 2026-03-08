@@ -1,10 +1,7 @@
 import { motion } from "framer-motion";
-import {
-  SiHtml5,
-  SiCss3,
-  SiTailwindcss,
-  SiJavascript,
-  SiReact,
+
+
+import { SiHtml5, SiTailwindcss, SiJavascript ,SiCss ,SiReact,
   SiRedux,
   SiNextdotjs,
   SiNodedotjs,
@@ -14,13 +11,11 @@ import {
   SiMysql,
   SiGit,
   SiGithub,
-  SiFigma,
-// SiVisualstudiocode
-} from "react-icons/si";
-
+  SiFigma,} from "react-icons/si";
+  import { VscVscode } from "react-icons/vsc";
 const skills = [
   { name: "HTML", icon: SiHtml5 },
-  { name: "CSS", icon: SiCss3 },
+  { name: "CSS", icon: SiCss },
   { name: "Tailwind", icon: SiTailwindcss },
   { name: "JavaScript", icon: SiJavascript },
   { name: "React", icon: SiReact },
@@ -34,7 +29,8 @@ const skills = [
   { name: "Git", icon: SiGit },
   { name: "GitHub", icon: SiGithub },
   { name: "Figma", icon: SiFigma },
-// { name: "VS Code", icon: SiVisualstudiocode }
+  { name: "Vscode", icon: VscVscode },
+
 ];
 
 export const SkillsSection = () => {
