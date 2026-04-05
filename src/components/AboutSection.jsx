@@ -49,11 +49,11 @@ export const AboutSection = () => {
               Passionate MERN Stack Developer & Problem Solver
             </h3>
 
-         <p className="text-gray-300 leading-relaxed text-justify max-w-3xl mx-auto break-words text-base md:text-lg">
+         <p className="text-gray-300 leading-relaxed md:leading-loose text-justify md:text-justify max-w-3xl mx-auto break-words text-base md:text-lg hyphens-auto">
   I am a 4th-year Computer Science Engineering student and a passionate MERN stack developer. I have hands-on experience building responsive, scalable, and secure web applications using MongoDB, Express.js, React, and Node.js. I completed a software internship at <strong className="text-primary font-semibold">NerdCoders Ltd</strong>, gaining practical experience in agile development and teamwork.
 </p>
 
-<p className="text-gray-300 leading-relaxed text-justify max-w-3xl mx-auto break-words text-base md:text-lg mt-4">
+<p className="text-gray-300 leading-relaxed md:leading-loose text-justify md:text-justify max-w-3xl mx-auto break-words text-base md:text-lg hyphens-auto">
   Apart from development, I enjoy solving algorithmic problems on <strong className="text-primary font-semibold">LeetCode</strong>, which helps me sharpen my problem-solving and logical thinking skills. I am always eager to learn new technologies, improve my coding skills, and contribute to innovative projects.
 </p>
 

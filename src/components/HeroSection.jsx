@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Facebook, Mail, Sparkles } from "lucide-react";
-
+import { SiLeetcode } from "react-icons/si";
 export const HeroSection = () => {
   const socialLinks = [
     {
@@ -21,6 +21,12 @@ export const HeroSection = () => {
       label: "Facebook",
       color: "hover:bg-blue-500/20"
     },
+    {
+    icon: <SiLeetcode className="h-5 w-5 md:h-6 md:w-6" />,
+    href: "https://leetcode.com/u/abdur_razzak1344/",
+    label: "LeetCode",
+    color: "hover:bg-yellow-500/20"
+  },
     {
       icon: (
         <svg className="h-5 w-5 md:h-6 md:w-6" viewBox="0 0 24 24" fill="currentColor">
@@ -179,7 +185,7 @@ export const HeroSection = () => {
             </a>
 
            <a
-                href="https://drive.google.com/file/d/1E3MtiqfL-2R0fCwPlLKytsincCnDpG8c/view?usp=sharing"
+                href="https://drive.google.com/file/d/16b7UKkenUbMs_QfXQHjGLgzZiDb_8KwS/view?usp=sharing"
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
               >
                 Download CV
@@ -203,7 +209,6 @@ export const HeroSection = () => {
             document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
           }}
         >
-          <span className="text-xs text-gray-500 tracking-wider uppercase">Scroll</span>
           <div className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center">
             <motion.div
               animate={{ y: [0, 12, 0] }}
