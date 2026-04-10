@@ -35,7 +35,7 @@ const skills = [
 
 export const SkillsSection = () => {
   return (
-    <section className="py-8 bg-[#030712] text-white">
+    <section id="skills" className="py-8 bg-[#030712] text-white">
       <div className="max-w-6xl mx-auto px-4">
 
         {/* Title */}
