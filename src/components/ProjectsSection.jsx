@@ -154,7 +154,7 @@ export const ProjectsSection = () => {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-3 py-1 text-xs text-white  font-bold bg-black/60 backdrop-blur-sm border border-primary/30 rounded-full text-primary"
+                          className="px-3 py-1 text-xs text-white  font-bold bg-black/60 backdrop-blur-sm border border-primary/30 rounded-full"
                         >
                           {tag}
                         </span>
