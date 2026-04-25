@@ -38,7 +38,7 @@ export const HeroSection = () => {
   }, [isMobile, mouseX, mouseY]);
 
   return (
-    <section id="hero" className="relative min-h-[100svh] flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#020617]">
+    <section id="hero" className="relative  flex items-center justify-center pt-10 md:pt-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#020617]">
 
       {/* 1. Background System (Optimized) */}
       <div className="absolute inset-0 pointer-events-none">
