@@ -1,222 +1,157 @@
-import { motion } from "framer-motion";
-import { Github, Linkedin, Facebook, Mail, Sparkles } from "lucide-react";
-import { SiLeetcode } from "react-icons/si";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import { Github, Linkedin, Mail, Download, ArrowRight } from "lucide-react";
+import { SiLeetcode, SiMedium } from "react-icons/si";
+import { useEffect, useState } from "react";
+
+const socialLinks = [
+  { icon: <Github className="w-5 h-5 md:w-6 md:h-6" />, href: "https://github.com/Razzak118348", label: "GitHub", color: "hover:text-white" },
+  { icon: <Linkedin className="w-5 h-5 md:w-6 md:h-6" />, href: "https://linkedin.com/in/abdur-razzak-0a3b91321", label: "LinkedIn", color: "hover:text-[#0077B5]" },
+  { icon: <SiLeetcode className="w-5 h-5 md:w-6 md:h-6" />, href: "https://leetcode.com/u/abdur_razzak1344/", label: "LeetCode", color: "hover:text-[#FFA116]" },
+  { icon: <SiMedium className="w-5 h-5 md:w-6 md:h-6" />, href: "https://medium.com/@abdurrazzak118348", label: "Medium", color: "hover:text-white" },
+  { icon: <Mail className="w-5 h-5 md:w-6 md:h-6" />, href: "mailto:abdurrazzak118348@gmail.com", label: "Email", color: "hover:text-[#EA4335]" },
+];
+
 export const HeroSection = () => {
-  const socialLinks = [
-    {
-      icon: <Github className="h-5 w-5 md:h-6 md:w-6" />,
-      href: "https://github.com/Razzak118348",
-      label: "GitHub",
-      color: "hover:bg-gray-800"
-    },
-    {
-      icon: <Linkedin className="h-5 w-5 md:h-6 md:w-6" />,
-      href: "https://linkedin.com/in/abdur-razzak-0a3b91321",
-      label: "LinkedIn",
-      color: "hover:bg-blue-600/20"
-    },
-    {
-      icon: <Facebook className="h-5 w-5 md:h-6 md:w-6" />,
-      href: "https://www.facebook.com/abdurrazzak118348",
-      label: "Facebook",
-      color: "hover:bg-blue-500/20"
-    },
-    {
-    icon: <SiLeetcode className="h-5 w-5 md:h-6 md:w-6" />,
-    href: "https://leetcode.com/u/abdur_razzak1344/",
-    label: "LeetCode",
-    color: "hover:bg-yellow-500/20"
-  },
-    {
-      icon: (
-        <svg className="h-5 w-5 md:h-6 md:w-6" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/>
-        </svg>
-      ),
-      href: "https://medium.com/@abdurrazzak118348",
-      label: "Medium",
-      color: "hover:bg-gray-700"
-    },
-    {
-      icon: <Mail className="h-5 w-5 md:h-6 md:w-6" />,
-      href: "mailto:abdurrazzak118348@gmail.com",
-      label: "Email",
-      color: "hover:bg-red-500/20"
-    }
-  ];
+  const [isMobile, setIsMobile] = useState(false);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springX = useSpring(mouseX, { stiffness: 100, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 100, damping: 20 });
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+
+    const handleMouseMove = (e) => {
+      if (!isMobile) {
+        mouseX.set(e.clientX);
+        mouseY.set(e.clientY);
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("resize", checkMobile);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, [isMobile, mouseX, mouseY]);
 
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center justify-center px-4 pt-16 overflow-hidden"
-    >
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 -z-10">
-        {/* Gradient Orbs */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-[128px] animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-500/20 rounded-full blur-[128px] animate-pulse delay-1000" />
+    <section id="hero" className="relative min-h-[100svh] flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#020617]">
 
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 opacity-20" style={{backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%239C92AC\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E')"}} />
+      {/* 1. Background System (Optimized) */}
+      <div className="absolute inset-0 pointer-events-none">
+        {!isMobile && (
+          <motion.div
+            style={{ x: springX, y: springY, translateX: "-50%", translateY: "-50%" }}
+            className="absolute w-[400px] h-[400px] lg:w-[600px] lg:h-[600px] bg-primary/10 rounded-full blur-[80px] lg:blur-[120px]"
+          />
+        )}
+        <div className="absolute inset-0 opacity-[0.1] lg:opacity-[0.15] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_70%)]"
+             style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40' fill='%2394a3b8' fill-opacity='0.2'/%3E%3C/svg%3E")` }}
+        />
       </div>
 
-      <div className="container max-w-5xl mx-auto text-center z-10">
-        {/* Profile Picture with Enhanced Animation */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{
-            duration: 0.8,
-            type: "spring",
-            stiffness: 100
-          }}
-          className="flex justify-center mb-8 relative"
-        >
-          {/* Glow Effect */}
-          <div className="absolute inset-0 rounded-full bg-primary/30 blur-2xl animate-pulse" />
+      <div className="container max-w-6xl mx-auto z-10 flex flex-col items-center py-20 lg:py-0">
 
-          {/* Profile Image */}
-          <div className="relative group">
+        {/* 2. Responsive Avatar Orbit */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="relative mb-8 md:mb-12"
+        >
+          {/* Mobile rings are slightly smaller to prevent layout shift */}
+          <div className="absolute inset-0 rounded-full border border-primary/20 scale-[1.15] md:scale-125 animate-[ping_3s_linear_infinite]" />
+
+          <div className="relative group p-1 rounded-full bg-gradient-to-tr from-primary via-purple-500 to-pink-500 overflow-hidden shadow-xl shadow-primary/10">
             <img
               src="/razzakpic.png"
               alt="Abdur Razzak"
-              className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary shadow-2xl relative z-10 group-hover:scale-105 transition-transform duration-300"
+              className="w-28 h-28 sm:w-36 sm:h-36 lg:w-48 lg:h-48 rounded-full object-cover bg-[#0f172a] transition-transform duration-500 group-hover:scale-105"
             />
+          </div>
 
-            {/* Status Badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.8 }}
-              className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-primary text-white text-xs px-3 py-1 rounded-full whitespace-nowrap z-20 shadow-lg"
-            >
-              <span className="flex items-center gap-1">
-                <Sparkles size={12} />
-                Open to Work
-              </span>
-            </motion.div>
+          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-950/90 backdrop-blur-md border border-white/10 whitespace-nowrap">
+            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-emerald-400">Open to Work</span>
           </div>
         </motion.div>
 
-        {/* Hero Text */}
-        <div className="space-y-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <span className="inline-block px-4 py-1.5 bg-primary/10 border border-primary/30 rounded-full text-sm font-medium text-primary mb-4">
-              👋 Welcome to my portfolio
-            </span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-2xl md:text-3xl font-bold tracking-tight"
-          >
-            <span className="text-gray-400">Hi,I am</span>{" "}
-            <span className="text-primary">Abdur</span>{" "}
-            <span className="bg-gradient-to-r from-primary via-purple-400 to-pink-500 bg-clip-text text-transparent">
-              Razzak
-            </span>
-          </motion.h1>
-
+        {/* 3. Typography Content */}
+        <div className="text-center space-y-6 md:space-y-8 w-full max-w-4xl">
+          <div className="space-y-3">
+            <motion.h2
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-primary font-bold tracking-[0.2em] uppercase text-[10px] md:text-xs lg:text-sm"
+            >
+              Full-Stack MERN Developer
+            </motion.h2>
+            <motion.h1
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-2xl sm:text-4xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight"
+            >
+              Abdur <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-pink-500">Razzak</span>
+            </motion.h1>
+          </div>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-gray-200 leading-relaxed max-w-2xl mx-auto text-base md:text-lg"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-gray-200 text-sm sm:text-base lg:text-xl leading-relaxed max-w-2xl mx-auto font-light px-4"
           >
-            I develop stellar web experiences with modern technologies. Specializing
-            in front-end and MERN stack, Next.js development, I build interfaces that are
-            both beautiful and functional.
+        Crafting the future of the web through<span className="text-white font-medium">performance-first</span>  development. I bridge the gap between robust backend architecture and fluid user experiences, leveraging the power of <span className="text-white font-medium">Next.js and the MERN stack</span> to build interfaces that feel as good as they function.
           </motion.p>
 
-          {/* Social Media Links - Enhanced */}
+          {/* 4. Adaptive CTA Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-wrap items-center justify-center gap-3 pt-4"
+            transition={{ delay: 0.4 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 px-6"
           >
-            {socialLinks.map((social, index) => (
-              <motion.a
-                key={index}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, y: -3 }}
-                whileTap={{ scale: 0.95 }}
-                className={`group relative p-3 rounded-xl bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:border-primary/50 transition-all duration-300 ${social.color}`}
-                aria-label={social.label}
-              >
-                {/* Tooltip */}
-                <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                  {social.label}
-                </span>
-
-                {/* Icon with hover effect */}
-                <span className="text-gray-300 group-hover:text-primary transition-colors">
-                  {social.icon}
-                </span>
-
-                {/* Ripple effect on hover */}
-                <span className="absolute inset-0 rounded-xl bg-primary/10 scale-0 group-hover:scale-100 transition-transform duration-300" />
-              </motion.a>
-            ))}
-          </motion.div>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            className="flex flex-wrap items-center justify-center gap-4 pt-6"
-          >
-            <a
-              href="#projects"
-              className="group relative px-6 py-2 bg-primary text-white font-semibold rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/30"
-            >
-              <span className="relative z-10">View My Work</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-primary to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <a href="#projects" className="w-full sm:w-auto group flex items-center justify-center gap-2 px-8 py-3.5 bg-primary text-white font-bold rounded-xl transition-all hover:shadow-[0_0_20px_rgba(var(--primary-rgb),0.4)] active:scale-95">
+              View Project <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
 
-           <a
-                href="https://drive.google.com/file/d/16b7UKkenUbMs_QfXQHjGLgzZiDb_8KwS/view?usp=sharing"
-                className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
+            <a href="/resume.pdf" className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 bg-white/5 backdrop-blur-sm border border-white/10 text-white font-bold rounded-xl transition-all hover:bg-white/10 active:scale-95">
+              <Download className="w-4 h-4" /> Resume
+            </a>
+          </motion.div>
+
+          {/* 5. Social Links (Mobile-Friendly touch targets) */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="flex items-center justify-center gap-5 sm:gap-8 pt-4 md:pt-8"
+          >
+            {socialLinks.map((link, i) => (
+              <a
+                key={i}
+                href={link.href}
+                className={`text-gray-500 transition-all p-2 rounded-lg ${link.color} hover:bg-white/5 active:scale-125`}
+                aria-label={link.label}
               >
-                Download CV
+                {link.icon}
               </a>
+            ))}
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll Down Indicator - Enhanced */}
+      {/* 6. Hide scroll on small mobile heights */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+        className="hidden sm:flex absolute bottom-8 lg:bottom-12 flex-col items-center gap-2 text-gray-600"
       >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2 cursor-pointer"
-          onClick={() => {
-            document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-          }}
-        >
-          <div className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center">
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="w-1 h-2 bg-primary rounded-full mt-2"
-            />
-          </div>
-        </motion.div>
+        <span className="text-[9px] uppercase tracking-widest font-bold">Explore</span>
+        <div className="w-[1px] h-10 lg:h-16 bg-gradient-to-b from-primary/50 to-transparent" />
       </motion.div>
     </section>
   );

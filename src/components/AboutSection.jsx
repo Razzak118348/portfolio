@@ -72,7 +72,7 @@ export const AboutSection = () => {
 
             <motion.div variants={itemVariants} className="space-y-6 text-gray-400 text-lg leading-relaxed">
               <p>
-                I am a 4th-year <span className="text-white font-medium">Computer Science Engineering</span> student specializing in high-end frontend animation and scalable backends.
+                I am a 4th-year <span className="text-white font-medium">Computer Science Engineering</span> student specializing in high-end frontend animation and scalable backends with MERN stack.
               </p>
               <p>
                 My journey involves bridging the gap between <span className="text-white font-medium">complex logic</span> and <span className="text-white font-medium">fluid user experiences</span>. Whether it is optimizing a MERN app or solving DSA challenges, I strive for clean, efficient code.
