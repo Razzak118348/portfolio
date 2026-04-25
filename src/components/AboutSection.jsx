@@ -1,98 +1,123 @@
-import { Briefcase, Code, User } from "lucide-react";
+import { Briefcase, Code, User, Terminal} from "lucide-react";
 import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
 
+const cards = [
+  {
+    icon: <Code className="w-6 h-6" />,
+    title: "MERN Stack",
+    desc: "Architecting scalable full-stack solutions with MongoDB, Express, React, and Node.js.",
+    color: "from-blue-500 to-cyan-400",
+    className: "md:col-span-2",
+  },
+  {
+    icon: <User className="w-6 h-6" />,
+    title: "UI/UX Design",
+    desc: "Crafting pixel-perfect, animated interfaces.",
+    color: "from-purple-500 to-pink-500",
+    className: "md:col-span-1",
+  },
+  {
+    icon: <Briefcase className="w-6 h-6" />,
+    title: "Experience",
+    desc: "Former Intern at NerdCoders Ltd. Agile & Team-focused.",
+    color: "from-orange-500 to-red-500",
+    className: "md:col-span-1",
+  },
+  {
+    icon: <Terminal className="w-6 h-6" />,
+    title: "Problem Solving",
+    desc: "Active on LeetCode. Strong focus on DSA and optimization.",
+    color: "from-green-500 to-emerald-400",
+    className: "md:col-span-2",
+  },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1 },
+};
+
 export const AboutSection = () => {
-  const cards = [
-    {
-      icon: <Code className="h-6 w-6 text-primary" />,
-      title: "MERN Stack Development",
-      desc: "Building responsive and scalable web apps with MongoDB, Express, React, and Node.js.",
-    },
-    {
-      icon: <User className="h-6 w-6 text-primary" />,
-      title: "UI/UX & Frontend",
-      desc: "Creating intuitive interfaces using HTML, CSS, Tailwind, React.js, and Next.js.",
-    },
-    {
-      icon: <Briefcase className="h-6 w-6 text-primary" />,
-      title: "Problem Solving",
-      desc: "Solving algorithmic challenges on LeetCode to strengthen problem-solving skills.",
-    },
-  ];
-
   return (
-    <section
-      id="about"
-      className="py-20 px-4 relative bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white"
-    >
-      <div className="container mx-auto max-w-5xl">
-        {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-xl md:text-2xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500"
+    <section id="about" className="py-10 md:py-16 px-2 md:px-6 relative overflow-hidden bg-[#030712]">
+      {/* Decorative Background Blur */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] -z-10" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] -z-10" />
+
+      <div className="container mx-auto max-w-6xl">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start"
         >
-          About <span className="text-primary">Me</span>
-        </motion.h2>
+          {/* Left: Content Strategy */}
+          <div className="lg:col-span-5 space-y-8">
+            <motion.div variants={itemVariants}>
+              <h2 className="text-2xl md:text-5xl font-extrabold tracking-tight">
+                About <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Me</span>
+              </h2>
+              <div className="h-1.5 w-20 bg-gradient-to-r from-purple-500 to-pink-500 mt-4 rounded-full" />
+            </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Left Text Section */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-6"
-          >
-            <h3 className="font-bold text-xl">
-              Passionate MERN Stack Developer & Problem Solver
-            </h3>
+            <motion.div variants={itemVariants} className="space-y-6 text-gray-400 text-lg leading-relaxed">
+              <p>
+                I am a 4th-year <span className="text-white font-medium">Computer Science Engineering</span> student specializing in high-end frontend animation and scalable backends.
+              </p>
+              <p>
+                My journey involves bridging the gap between <span className="text-white font-medium">complex logic</span> and <span className="text-white font-medium">fluid user experiences</span>. Whether it is optimizing a MERN app or solving DSA challenges, I strive for clean, efficient code.
+              </p>
+            </motion.div>
 
-         <p className="text-gray-300 leading-relaxed md:leading-loose text-justify md:text-justify max-w-3xl mx-auto break-words text-base md:text-lg hyphens-auto">
-  I am a 4th-year Computer Science Engineering student and a passionate MERN stack developer. I have hands-on experience building responsive, scalable, and secure web applications using MongoDB, Express.js, React, and Node.js. I completed a software internship at <strong className="text-primary font-semibold">NerdCoders Ltd</strong>, gaining practical experience in agile development and teamwork.
-</p>
-
-<p className="text-gray-300 leading-relaxed md:leading-loose text-justify md:text-justify max-w-3xl mx-auto break-words text-base md:text-lg hyphens-auto">
-  Apart from development, I enjoy solving algorithmic problems on <strong className="text-primary font-semibold">LeetCode</strong>, which helps me sharpen my problem-solving and logical thinking skills. I am always eager to learn new technologies, improve my coding skills, and contribute to innovative projects.
-</p>
-
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-              <a href="#contact" className="cosmic-button">
-                Get In Touch
+            <motion.div variants={itemVariants} className="pt-4">
+              <a href="#contact" className="inline-flex items-center justify-center px-8 py-3 font-semibold text-white transition-all duration-200 bg-purple-600 rounded-full hover:bg-purple-700 shadow-[0_0_20px_rgba(147,51,234,0.3)] hover:shadow-[0_0_30px_rgba(147,51,234,0.5)]">
+                Contact Me
               </a>
+            </motion.div>
+          </div>
 
-            </div>
-          </motion.div>
-
-          {/* Right Cards Section */}
-          <div className="grid grid-cols-1 gap-6">
-            {cards.map((card, i) => (
+          {/* Right: Bento Grid */}
+          <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-3 gap-4">
+            {cards.map((card, idx) => (
               <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.2 }}
+                key={idx}
+                variants={itemVariants}
+                className={card.className}
               >
                 <Tilt
+                  tiltMaxAngleX={10}
+                  tiltMaxAngleY={10}
+                  perspective={1000}
                   glareEnable={true}
-                  glareMaxOpacity={0.2}
-                  glareColor="#ffffff"
-                  glarePosition="all"
-                  className="p-6 rounded-xl bg-gray-800 hover:shadow-lg transition-shadow duration-300 border-2 border-gradient-to-r from-purple-400 to-pink-500"
+                  glareMaxOpacity={0.15}
+                  className="h-full"
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-full bg-primary/10">{card.icon}</div>
-                    <div className="text-left">
-                      <h4 className="font-semibold text-lg">{card.title}</h4>
-                      <p className="text-gray-300 leading-relaxed text-justify ">{card.desc}</p>
+                  <div className="group relative h-full p-8 rounded-3xl bg-gray-900/50 border border-white/10 backdrop-blur-xl hover:border-white/20 transition-all">
+                    {/* Icon Glow Effect */}
+                    <div className={`absolute -inset-px rounded-3xl bg-gradient-to-br ${card.color} opacity-0 group-hover:opacity-10 transition-opacity`} />
+
+                    <div className={`inline-flex p-3 rounded-2xl bg-gradient-to-br ${card.color} mb-6 shadow-lg`}>
+                      <div className="text-white">{card.icon}</div>
                     </div>
+
+                    <h4 className="text-xl font-bold text-white mb-3">{card.title}</h4>
+                    <p className="text-gray-400 text-sm leading-relaxed">{card.desc}</p>
                   </div>
                 </Tilt>
               </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
